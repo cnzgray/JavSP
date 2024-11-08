@@ -71,6 +71,8 @@ def remove_trail_actor_in_title(title:str, actors:list) -> str:
     """寻找并移除标题尾部的女优名"""
     if not (actors and title):
         return title
+    # 先对标题进行trim处理
+    title = title.strip()
     # 目前使用分隔符白名单来做检测（担心按Unicode范围匹配误伤太多），考虑尽可能多的分隔符
     delimiters = '-xX &·,;　＆・，；'
     actor_ls = [re_escape(i) for i in actors if i]
@@ -274,5 +276,10 @@ def download_update(rel_info):
 
 
 if __name__ == "__main__":
-    setattr(sys, 'javsp_version', 'v0')
-    check_update()
+    # setattr(sys, 'javsp_version', 'v0')
+    # check_update()
+    # 测试代码
+    title = '彼女が3日間家族旅行で家を空けるというので、彼女の友達と3日間ハメまくった記録（仮） 藤波さとり '
+    actors = ['藤波さとり']
+
+    print(remove_trail_actor_in_title(title, actors))
