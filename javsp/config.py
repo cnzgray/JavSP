@@ -114,6 +114,7 @@ class Crawler(BaseConfig):
     fc2fan_local_path: Path | None
     sleep_after_scraping: Duration
     use_javdb_cover: UseJavDBCover
+    use_javdb_translated_title: bool
     normalize_actress_name: bool
 
 class MovieDefault(BaseConfig):
